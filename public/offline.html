@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HemoDonation Offline</title>
+    <style>
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #050914; color: white; font-family: Inter, system-ui, sans-serif; }
+      .card { width: min(92vw, 440px); border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); border-radius: 28px; padding: 28px; text-align: center; box-shadow: 0 24px 80px rgba(0,0,0,.35); }
+      .icon { width: 70px; height: 70px; display: grid; place-items: center; margin: 0 auto 16px; border-radius: 24px; background: rgba(220,38,38,.16); font-size: 34px; }
+      h1 { margin: 0; font-size: 28px; }
+      p { color: #cbd5e1; line-height: 1.7; }
+      button { border: 0; border-radius: 16px; padding: 12px 18px; background: #dc2626; color: white; font-weight: 800; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="icon">🩸</div>
+      <h1>You are offline</h1>
+      <p>HemoDonation is installed, but live donor search and request updates need internet access.</p>
+      <button onclick="location.reload()">Try Again</button>
+    </main>
+  </body>
+</html>
