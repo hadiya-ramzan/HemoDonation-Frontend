@@ -237,12 +237,6 @@ function AdminDashboard() {
                   Verified donors are prioritized for donor search and emergency matching. Donation entries can be approved or rejected by admin for cleaner records.
                 </p>
               </div>
-
-              <div className="rounded-[1.6rem] border border-white/10 bg-white/[0.05] p-4 lg:min-w-[260px]">
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-500">Logged in as</p>
-                <p className="mt-2 text-xl font-black">{admin?.full_name || "Admin"}</p>
-                <p className="mt-1 text-sm text-slate-400">{admin?.email || "admin@gmail.com"}</p>
-              </div>
             </div>
           </div>
 
