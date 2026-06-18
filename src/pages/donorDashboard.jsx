@@ -151,15 +151,32 @@ function DonorDashboard() {
     }
   };
 
+  // const fetchMatchingRequests = async () => {
+  //   try {
+  //     const res = await API.get("/requests/matching");
+  //     setRequests(Array.isArray(res.data?.requests) ? res.data.requests : []);
+  //   } catch (error) {
+  //     console.warn("Matching requests API failed:", error);
+  //     setRequests([]);
+  //   }
+  // };
+
   const fetchMatchingRequests = async () => {
-    try {
-      const res = await API.get("/requests/matching");
-      setRequests(Array.isArray(res.data?.requests) ? res.data.requests : []);
-    } catch (error) {
-      console.warn("Matching requests API failed:", error);
-      setRequests([]);
-    }
-  };
+  try {
+    const res = await API.get("/requests/matching");
+
+    console.log("MATCHING RESPONSE:", res.data);
+
+    setRequests(
+      Array.isArray(res.data?.requests)
+        ? res.data.requests
+        : []
+    );
+  } catch (error) {
+    console.warn("Matching requests API failed:", error);
+    setRequests([]);
+  }
+};
 
   const fetchHistory = async () => {
     try {
@@ -519,7 +536,7 @@ function DonorDashboard() {
                 <EmptyState
                   icon="🫶"
                   title="No matching requests right now"
-                  description="When a recipient creates a request for your blood group and city, it will appear here."
+                  description="Compatible blood requests appear here automatically based on blood group compatibility and urgency."
                 />
               ) : (
 
