@@ -151,16 +151,6 @@ function DonorDashboard() {
     }
   };
 
-  // const fetchMatchingRequests = async () => {
-  //   try {
-  //     const res = await API.get("/requests/matching");
-  //     setRequests(Array.isArray(res.data?.requests) ? res.data.requests : []);
-  //   } catch (error) {
-  //     console.warn("Matching requests API failed:", error);
-  //     setRequests([]);
-  //   }
-  // };
-
   const fetchMatchingRequests = async () => {
   try {
     const res = await API.get("/requests/matching");
@@ -1025,14 +1015,7 @@ function ProfileCard({ donor, completeness, eligibility, onEdit }) {
 
       <div className="mt-5 space-y-3">
         <ProfileRow label="Phone" value={donor.phone || "N/A"} />
-        {/* <ProfileRow label="Blood" value={donor.blood_group || "N/A"} /> */}
         <ProfileRow label="Gender" value={capitalize(donor.gender) || "N/A"} />
-        {/* <ProfileRow label="City" value={donor.city || "N/A"} /> */}
-        {/* <ProfileRow label="WhatsApp" value={donor.whatsapp || "Not added"} /> */}
-        {/* <ProfileRow label="Emergency Contact" value={donor.emergency_contact || "Not added"} /> */}
-        {/* <ProfileRow label="Preferred Area" value={donor.preferred_area || "Not added"} /> */}
-        {/* <ProfileRow label="Preferred Time" value={formatPreferredTime(donor.preferred_time)} /> */}
-        {/* <ProfileRow label="Can Travel" value={donor.can_travel ? "Yes" : "No"} /> */}
         <ProfileRow label="Last Donation" value={eligibility.lastDonationText} />
         <ProfileRow label="Reliability Badge" value={donor.reliability_badge || "Bronze"} />
         <ProfileRow label="Reliability Score" value={`${donor.reliability_score_calculated ?? donor.reliability_score ?? 0}%`} />
@@ -1104,7 +1087,7 @@ function HealthCheckCard({ donor, healthForm, setHealthForm, submittingHealth, o
 
       {!showForm ? (
         isPassed ? (
-          // ✅ PASSED STATE
+          //  PASSED STATE
           <div className="mt-5 rounded-3xl border border-emerald-400/20 bg-emerald-500/10 p-4">
             <p className="text-sm font-bold text-emerald-200">
               Health check passed
@@ -1119,7 +1102,7 @@ function HealthCheckCard({ donor, healthForm, setHealthForm, submittingHealth, o
           </div>
         ) : donor?.health_check_completed === null ||
           donor?.health_check_completed === undefined ? (
-          // 🆕 NEW USER STATE (IMPORTANT FIX)
+          // NEW USER STATE 
           <div className="mt-5 rounded-3xl border border-white/10 bg-white/5 p-4">
             <p className="text-sm font-bold text-slate-200">
               Health check not completed yet
@@ -1433,20 +1416,22 @@ function EditProfileModal({ editData, setEditData, savingProfile, onClose, onSav
 
             <Field label="WhatsApp Number">
               <input
-                type="text"
+                type="tel"
                 value={editData.whatsapp}
                 onChange={(e) => setEditData({ ...editData, whatsapp: e.target.value })}
                 placeholder="03XXXXXXXXX"
+                maxLength={11}
                 className={inputClass}
               />
             </Field>
 
             <Field label="Emergency Contact">
               <input
-                type="text"
+                type="tel"
                 value={editData.emergency_contact}
                 onChange={(e) => setEditData({ ...editData, emergency_contact: e.target.value })}
                 placeholder="03XXXXXXXXX"
+                maxLength={11}
                 className={inputClass}
               />
             </Field>
